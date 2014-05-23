@@ -23,11 +23,11 @@
 
     <div id="menu">
         <div class="pure-menu pure-menu-open">
-            <a class="pure-menu-heading" href="#">Project 3</a>
+            <a class="pure-menu-heading" href="index.php">Project 3</a>
 
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Insert Data</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="insertdb.php">Insert Data</a></li>
 
                 <li class="menu-item-divided pure-menu-selected">
                     <a href="#">Query Data</a>
