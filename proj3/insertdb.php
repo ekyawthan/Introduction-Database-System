@@ -52,20 +52,24 @@
     </form>
      <?php    
         if(isset($_POST['SubProd'])){ //check if form was submitted
-            $db_host = 'localhost';
-            $db_user = 'root';
-            $db_passwd = 'Qsan8of12';
-            $db_name = 'dev';
-            if(!@mysql_connect($db_host, $db_user, $db_passwd)) {
-            echo "<h2>Connection Error.</h2>";
-            die();
+            $con=mysql_connect("localhost","root","Qsan8of12","dev");
+
+            if (!$con) {
+                 echo "Failed to connect to MySQL: ";
+                 die();
+                }
+
+            $name = mysql_real_escape_string($con, $_POST['name']);
+            $address = mysql_real_escape_string($con, $_POST['address']);
+            $sql = "INSERT INTO Producer (name, address) VALUES ('$name', '$address')";
+
+            if (!mysql_query($con,$sql)) {
+                die('Error: ' . mysql_error($con));
             }
-            mysql_select_db($db_name);
-            $name = $_POST['name'];
-            $address = $_POST['address'];
-            if(! mysql_query("INSERT INTO Producer (name, address) VALUES('$name, $address)")){
-            }
-            mysql_close();
+            echo "1 record added";
+
+            mysql_close($con);        
+
         }    
     ?>  
     <hr>
