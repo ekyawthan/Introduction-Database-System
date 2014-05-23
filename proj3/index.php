@@ -1,32 +1,69 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Project3: Index</title>
-	<link rel="stylesheet" href="">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+
+    <title>Project3 &ndash;Music System</title>
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+ <link rel="stylesheet" href="css/layouts/side-menu.css">  
+
 </head>
-<style type="text/css" media="screen">
-body{
-	width:900px;
-	margin: 0 auto;
-	background: #F0E6E6;
-}
-	
-</style>
 <body>
-<form action="#" method="get" accept-charset="utf-8">
-	<div>
-		<label>Name:</label>
-		<input type="text" name="name" value="name" placeholder="Name of Producer">		
-	</div>
-	<div>
-		<label>Address: <input type="text/submit/hidden/button/etc" name="address" value="" placeholder="Address"></label>
-	</div>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="#">Project 3</a>
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Insert Data</a></li>
+
+                <li class="menu-item-divided pure-menu-selected">
+                    <a href="#">Query Data</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>Project 3: Music System Managements</h1>
+            <h2>by: Kyaw Than Mong</h2>
+        </div>
+
+        <div class="content">
+            <h2 class="content-subhead">Project Description</h2>
+            <p>
+            <ol>
+            	<li> CD has a title, a year of production and a CD type. You can come with you own CD types.</li>
+            	<li>A CD usually has multiple songs on different tracks. Each song has a name, an artist and a track number. Entity set Song is considered to be weak and needs support from entity set CD. </li>
+           		<li>A CD is produced by a producer which has a name and an address.</li>
+				<li>A CD may be supplied by multiple suppliers, each has a name and an address. </li>
+				<li>A customer may rent multiple CDs. Customer information such as Social Security Number (SSN), name, telephone needs to be recorded.  The date and period of renting (in days) should also be recorded.</li>
+				<li>A customer may be a regular member and a VIP member. A VIP member has additional information such as the starting date of VIP status and percentage of discount. </li>
+            </ol>
+            </p>
+        </div>
+    </div>
+</div>
 
 
-</form>
 
-	
+
+
+<script src="js/ui.js"></script>
+
+
 </body>
 </html>
