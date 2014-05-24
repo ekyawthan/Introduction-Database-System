@@ -55,15 +55,23 @@
             </ol>
             </p>
         </div>
+        <div class="content">
+            <h2 class="content-subhead">Task3: Menu driven UI</h2>
+            <p>
+                <ol>
+                    <li>Insert a producer (6%)</li>
+                    <li>Insert a CD supplied by a particular supplier and produced by a particular producer (10%)</li>
+                    <li>Insert a regular-customer borrowing a particular CD (10%)</li>
+                    <li>Insert a VIP customer borrowing a particular CD (10%)</li>
+                    <li>Find names and Tel# of all customers who borrowed a particular CD and are supposed to return by a particular date. (12%)</li>
+                    <li>List producers who produce CD of a particular artist released in a particular year. (12%)</li>
+                </ol>
+            </p>
+        </div>
+
     </div>
 </div>
-
-
-
-
-
 <script src="js/ui.js"></script>
-
 
 </body>
 </html>

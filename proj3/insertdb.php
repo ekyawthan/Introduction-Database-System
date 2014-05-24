@@ -2,98 +2,108 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
 
     <title>Project3 &ndash;Music System</title>
 
 
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
- <link rel="stylesheet" href="css/layouts/side-menu.css">  
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+    <link rel="stylesheet" href="css/layouts/side-menu.css">  
 
 </head>
 <body>
 
-<div id="layout">
-    <!-- Menu toggle -->
-    <a href="#menu" id="menuLink" class="menu-link">
-        <!-- Hamburger icon -->
-        <span></span>
-    </a>
+    <div id="layout">
+        <!-- Menu toggle -->
+        <a href="#menu" id="menuLink" class="menu-link">
+            <!-- Hamburger icon -->
+            <span></span>
+        </a>
 
-    <div id="menu">
-        <div class="pure-menu pure-menu-open">
-            <a class="pure-menu-heading" href="index.php">Project 3</a>
+        <div id="menu">
+            <div class="pure-menu pure-menu-open">
+                <a class="pure-menu-heading" href="index.php">Project 3</a>
 
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="insertdb.php">Insert Data</a></li>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="insertdb.php">Insert Data</a></li>
 
-                <li class="menu-item-divided pure-menu-selected">
-                    <a href="#">Query Data</a>
-                </li>
-            </ul>
+                    <li class="menu-item-divided pure-menu-selected">
+                        <a href="#">Query Data</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="content"> 
+        <div class="content"> 
 
-    <form class="pure-form pure-form-stacked" action="" method="POST">
-    <fieldset>
-        <legend>Add A Producer</legend>
+            <form class="pure-form pure-form-stacked" action="" method="POST">
+                <fieldset>
+                    <legend>Add A Producer</legend>
 
-        <label for="prod">Name</label>
-        <input id="prod" type="text" name="name" placeholder="i.e John..">
+                    <label for="prod">Name</label>
+                    <input id="prod" type="text" name="name" placeholder="i.e John..">
 
-        <label for="addr">Address:</label>
-        <input id="addr" type="text" name="address" placeholder="i.e 123 xxx">
+                    <label for="addr">Address:</label>
+                    <input id="addr" type="text" name="address" placeholder="i.e 123 xxx">
 
-        <button type="submit" name="SubProd" class="pure-button pure-button-primary">add</button>
-    </fieldset>
-    </form>
-     <?php    
-        if(isset($_POST['SubProd'])){ //check if form was submitted
-    include_once("conn.php");
-    $name = mysql_real_escape_string($_POST['name']);
-    $address = mysql_real_escape_string($_POST['address']);
-    $sql = "INSERT INTO Producer(name, address) VALUES('$name','$address')";
+                    <button type="submit" name="SubProd" class="pure-button pure-button-primary">add</button>
+                </fieldset>
+            </form>
+            <?php
+            include_once("conn.php");
+            include_once("insert_prod.php");     
+            ?>  
+            <hr>
+            <form class="pure-form pure-form-stacked" action="" method="POST">
+                <fieldset>
+                    <legend>Insert a CD supplied by a particular supplier and produced by a particular producer </legend>
 
-    if(!mysql_query($sql))
-        die('Error: ' .mysql_error());
-    echo "record added";
-     mysql_close();      
+                    <label for="CD">CD Title</label>
+                    <input id="CD" name="title" type="text" placeholder="CD Title">
 
-        }    
-    ?>  
-    <hr>
-    <form class="pure-form pure-form-stacked">
-    <fieldset>
-        <legend>Insert a CD supplied by a particular supplier and produced by a particular producer </legend>
+                    <label for="year">Year</label>
+                    <input id="year" name="year" type="number" placeholder="The Year">
 
-        <label for="CD">CD Title</label>
-        <input id="CD" type="text" placeholder="CD Title">
+                    <label for="type">Type</label>
+                    <select id = "type" name="type" type = "text">
+                     <option value="Solo" selected="selected" >Solo</option>
+                     <option value="Mixed">Mixed</option>
+                 </select>
+                 <label for="supplier">Supplier</label>
+                 <select id="suplier" name="supplier">
+                    <?php 
+                    include_once("conn.php");
+                    $sql = "SELECT name FROM Supplier ";
+                    $result = mysql_query($sql);
+                    while($row = mysql_fetch_array($result)){
+                        echo "<option value='".$row['path']."'>".$row['name']."</option>";
+                   }
+                   ?>
 
-        <label for="year">Year</label>
-        <input id="year" type="number" placeholder="The Year">
+               </select>
 
-        <label for="supplier">Supplier</label>
-        <select id="suplier">
-            <option>AL</option>
-            <option>CA</option>
-            <option>IL</option>
-        </select>
+               <label for="producer">Producer</label>
+               <select id="producer" name="producer">
+                <?php 
+                include_once("conn.php");
+                $sql = "SELECT name FROM Producer ";
+                $result = mysql_query($sql);
+                while($row = mysql_fetch_array($result)){
+                   echo "<option value='".$row['path']."'>".$row['name']."</option>";
+               }
+               ?>
+           </select>
 
-        <label for="supplier">Producer</label>
-        <select id="suplier">
-            <option>AL</option>
-            <option>CA</option>
-            <option>IL</option>
-        </select>
-
-        <button type="submit" class="pure-button pure-button-primary">Add</button>
-        </fieldset>
-        </form>
-        <hr>
-        <form class="pure-form pure-form-stacked">
+           <button type="submit" name="SubCD" class="pure-button pure-button-primary">Add</button>
+       </fieldset>
+   </form>
+   <?php 
+        include_once("cd_by_sup_prod.php");
+        mysql_close();
+    ?>
+   <hr>
+   <form class="pure-form pure-form-stacked">
     <fieldset>
         <legend>Insert a regular-customer borrowing a particular CD</legend>
 
@@ -109,7 +119,7 @@
     </fieldset>
 </form>
 <hr>
-        <form class="pure-form pure-form-stacked">
+<form class="pure-form pure-form-stacked">
     <fieldset>
         <legend>Insert a VIP-customer borrowing a particular CD</legend>
 
@@ -124,8 +134,8 @@
         <button type="submit" class="pure-button pure-button-primary">Rent</button>
     </fieldset>
 </form>        
-    </div>
+</div>
 
-    </div>
-    </body>
-    </html>
+</div>
+</body>
+</html>
