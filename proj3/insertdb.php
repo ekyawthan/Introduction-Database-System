@@ -66,18 +66,17 @@
                     <input id="year" name="year" type="number" placeholder="The Year">
 
                     <label for="type">Type</label>
-                    <select id = "type" name="type" type = "text">
-                     <option value="Solo" selected="selected" >Solo</option>
-                     <option value="Mixed">Mixed</option>
+                    <select id = "type" name="type" type="text">
+                     <option  value="solo" selected="selected" >Solo</option>
+                     <option value="mixed">Mixed</option>
                  </select>
                  <label for="supplier">Supplier</label>
                  <select id="suplier" name="supplier">
                     <?php 
-                    include_once("conn.php");
                     $sql = "SELECT name FROM Supplier ";
                     $result = mysql_query($sql);
                     while($row = mysql_fetch_array($result)){
-                        echo "<option value='".$row['path']."'>".$row['name']."</option>";
+                        echo "<option value='".$row['name']."'>".$row['name']."</option>";
                    }
                    ?>
 
@@ -86,11 +85,11 @@
                <label for="producer">Producer</label>
                <select id="producer" name="producer">
                 <?php 
-                include_once("conn.php");
+                
                 $sql = "SELECT name FROM Producer ";
                 $result = mysql_query($sql);
                 while($row = mysql_fetch_array($result)){
-                   echo "<option value='".$row['path']."'>".$row['name']."</option>";
+                   echo "<option value='".$row['name']."'>".$row['name']."</option>";
                }
                ?>
            </select>
@@ -100,14 +99,16 @@
    </form>
    <?php 
         include_once("cd_by_sup_prod.php");
-        mysql_close();
     ?>
    <hr>
-   <form class="pure-form pure-form-stacked">
+   <form class="pure-form pure-form-stacked" action="" method="POST">
     <fieldset>
         <legend>Insert a regular-customer borrowing a particular CD</legend>
 
         <label for="name">Customer Name</label>
+        <?php 
+            $sql = "SELECT name FROM Customer"
+         ?>
         <input id="name" type="text" placeholder="Name">
 
         <label for="date">Rent'Date:</label>
@@ -133,7 +134,10 @@
 
         <button type="submit" class="pure-button pure-button-primary">Rent</button>
     </fieldset>
-</form>        
+</form> 
+<?php 
+    mysql_close();
+ ?>      
 </div>
 
 </div>

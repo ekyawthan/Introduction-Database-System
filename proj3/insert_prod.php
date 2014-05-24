@@ -1,6 +1,5 @@
 <?php 
     if(isset($_POST['SubProd'])){ //check if form was submitted
-    include_once("conn.php");
     $name = mysql_real_escape_string($_POST['name']);
     $address = mysql_real_escape_string($_POST['address']);
     $sql = "INSERT INTO Producer(name, address) VALUES('$name','$address')";
