@@ -1,5 +1,5 @@
 CREATE TABLE CD (
-        title VARCHAR(140) NOT NULL,
+        title VARCHAR(140) NOT NULL  ,
         year INT NOT NULL,
         type VARCHAR(10),
         PRIMARY KEY(title, year)

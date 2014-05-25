@@ -30,7 +30,7 @@
                 <li><a href="insertdb.php">Insert Data</a></li>
 
                 <li class="menu-item-divided pure-menu-selected">
-                    <a href="#">Query Data</a>
+                    <a href="query.php">Query Data</a>
                 </li>
             </ul>
         </div>
