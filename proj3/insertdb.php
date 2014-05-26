@@ -140,13 +140,16 @@ $( "#datepicker3" ).datepicker();
                    ?>
                    </select>
         <label for="date">Rental Date </label>
-        <input id="datepicker" type="date" placeholder="Date">
+        <input id="datepicker" type="date" placeholder="select a Date" name="rentDate">
         <label for="date">Rent Date </label>
-        <input id="datepicker1" type="date" placeholder="Date">
+        <input id="datepicker1" type="date" placeholder="Date" name="returnDate">
 
-        <button type="submit" class="pure-button pure-button-primary">Rent</button>
+        <button type="submit" name="subRent" class="pure-button pure-button-primary">Rent</button>
     </fieldset>
 </form>
+<?php 
+    include_once("rent.php");
+ ?>
 <hr>
 <form class="pure-form pure-form-stacked">
     <fieldset>
@@ -173,11 +176,11 @@ $( "#datepicker3" ).datepicker();
                    ?>
                    </select>
         <label for="date">Rental Date:</label>
-        <input id="datepicker2"  type="date" placeholder="Date">
-        <label for="date">Rent Date:</label>
-        <input id="datepicker3" type="date" placeholder="Date">
+        <input id="datepicker2"  type="date" placeholder="Date" name="rentDate">
+        <label for="date">Return Date:</label>
+        <input id="datepicker3" type="date" placeholder="Date" name="returnDate">
 
-        <button type="submit" class="pure-button pure-button-primary">Rent</button>
+        <button type="submit" name="subRent" class="pure-button pure-button-primary">Rent</button>
     </fieldset>
 </form> 
 <?php 

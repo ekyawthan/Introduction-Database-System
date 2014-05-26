@@ -40,10 +40,75 @@
     <div class="content">
         <h2 class="content-subhead">Data Query</h2>
         <hr>
+        <div class="content"> 
 
-        <ul>
-            <li></li>
-        </ul>
+            <form class="pure-form pure-form-stacked" action="" method="POST">
+                <fieldset>
+                    <legend>Find names and Tel# of all customers who borrowed a particular CD and are supposed to return by a particular date</legend>
+
+                    <label for="titile">CD title</label>
+                    <select id="title" name="title">
+                    <?php 
+                    include_once("conn.php");
+                    $sql = "SELECT title FROM Rent ";
+                    $result = mysql_query($sql);
+                    while($row = mysql_fetch_array($result)){
+                        echo "<option value='".$row['title']."'>".$row['title']."</option>";
+                   }
+                   ?>
+                   </select>
+
+                    <label for="returnDate">Rent Date:</label>
+                      <select id="returnDate" name="returnDate">
+                    <?php 
+                    $sql = "SELECT returnDate FROM Rent ";
+                    $result = mysql_query($sql);
+                    while($row = mysql_fetch_array($result)){
+                        echo "<option value='".$row['returnDate']."'>".$row['returnDate']."</option>";
+                   }
+                   ?>
+                   </select>
+
+                    <button type="submit" name="rentQ" class="pure-button pure-button-primary">Find It!</button>
+                </fieldset>
+            </form>
+            <?php         
+            include_once("rentq.php");     
+            ?>
+            <hr>
+            <form class="pure-form pure-form-stacked" action="" method="POST">
+                <fieldset>
+                    <legend>List producers who produce CD of a particular artist released in a particular year</legend>
+
+                    <label for="titile">Artist</label>
+                    <select id="title" name="title">
+                    <?php 
+                    include_once("conn.php");
+                    $sql = "SELECT artist FROM Song ";
+                    $result = mysql_query($sql);
+                    while($row = mysql_fetch_array($result)){
+                        echo "<option value='".$row['artist']."'>".$row['artist']."</option>";
+                   }
+                   ?>
+                   </select>
+
+                    <label for="year">CD release Year:</label>
+                      <select id="year" name="year">
+                    <?php 
+                    $sql = "SELECT year FROM CD ";
+                    $result = mysql_query($sql);
+                    while($row = mysql_fetch_array($result)){
+                        echo "<option value='".$row['year']."'>".$row['year']."</option>";
+                   }
+                   ?>
+                   </select>
+
+                    <button type="submit" name="rentQ1" class="pure-button pure-button-primary">Find It!</button>
+                </fieldset>
+            </form>
+            <?php         
+            include_once("rentq.php");     
+            ?>
 
     </div>
     </div>
@@ -51,3 +116,5 @@
     <script src="js/ui.js"></script>
     </body>
     </html>
+
+   

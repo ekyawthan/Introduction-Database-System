@@ -49,7 +49,7 @@
                     <label for="name">Name</label>
                     <input id="name" type="text" name="name" placeholder="i.e John">
                     <label for="phone">Phone</label>
-                    <input id="phone" type="number" name="name" placeholder="i.e 646969556">
+                    <input id="phone" type="number" name="phoneNo" placeholder="i.e 646969556">
 
                     <button type="submit" name="subCust" class="pure-button pure-button-primary">add</button>
                 </fieldset>

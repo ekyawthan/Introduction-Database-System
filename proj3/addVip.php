@@ -82,6 +82,7 @@ $( "#datepicker" ).datepicker();
             if(!mysql_query($sql))
                 die('Error: ' .mysql_error());
             echo "record added";
+            echo $start;
         } 
         mysql_close();
         ?>
