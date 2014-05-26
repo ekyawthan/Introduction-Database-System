@@ -107,7 +107,8 @@
                 </fieldset>
             </form>
             <?php         
-            include_once("rentq.php");     
+            include_once("rentq1.php");
+            mysql_close();    
             ?>
 
     </div>

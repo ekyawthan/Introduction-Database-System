@@ -70,7 +70,9 @@ $( "#datepicker3" ).datepicker();
             include_once("insert_prod.php");     
             ?>  
             <hr>
+            <p>Empty CD! <a href="song.php" title=""> Add A Song</a></p>
             <form class="pure-form pure-form-stacked" action="" method="POST">
+
                 <fieldset>
                     <legend>Insert a CD supplied by a particular supplier and produced by a particular producer </legend>
 

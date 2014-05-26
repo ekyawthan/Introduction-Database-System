@@ -1,8 +1,8 @@
 <?php 
-	     $db_host = 'localhost';
-        $db_user = 'root';
-        $db_passwd = 'Qsan8of12';
-        $db_name = 'dev';
+	     $db_host = '134.74.112.65';
+        $db_user = 'mon14';
+        $db_passwd = 'kyaw';
+        $db_name = 'd418';
         if(!@mysql_connect($db_host, $db_user, $db_passwd)) {
                 echo "<h2>Connection Error.</h2>";
         die();

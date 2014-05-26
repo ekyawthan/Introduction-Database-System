@@ -56,15 +56,30 @@
             </p>
         </div>
         <div class="content">
+        <h2 class="content-subhead">Task 1: ER DIAGRAMG</h2>
+        <p>
+            <img src="erdiagram.png" alt="">
+        </p>
+            
+        </div>
+        <div class="content">
+        <h2 class="content-subhead">Task 2: SQL STATEMENTS</h2>
+        <p>
+        Please refer to submitted zip file
+            
+        </p>
+            
+        </div>
+        <div class="content">
             <h2 class="content-subhead">Task3: Menu driven UI</h2>
             <p>
                 <ol>
-                    <li>Insert a producer (6%)</li>
-                    <li>Insert a CD supplied by a particular supplier and produced by a particular producer (10%)</li>
-                    <li>Insert a regular-customer borrowing a particular CD (10%)</li>
-                    <li>Insert a VIP customer borrowing a particular CD (10%)</li>
-                    <li>Find names and Tel# of all customers who borrowed a particular CD and are supposed to return by a particular date. (12%)</li>
-                    <li>List producers who produce CD of a particular artist released in a particular year. (12%)</li>
+                    <li><a href="insertdb.php" title="">Insert a producer (6%) </a> </li>
+                    <li> <a href="insertdb.php" title="">Insert a CD supplied by a particular supplier and produced by a particular producer (10%)</a> </li>
+                    <li> <a href="insertdb.php" title="">Insert a regular-customer borrowing a particular CD (10%)</a></li>
+                    <li>  <a href="insertdb.php" title="">Insert a VIP customer borrowing a particular CD (10%)</a></li>
+                    <li><a href="query.php" title="">Find names and Tel# of all customers who borrowed a particular CD and are supposed to return by a particular date. (12%)</a> </li>
+                    <li><a href="query.php" title=""> List producers who produce CD of a particular artist released in a particular year. (12%)</a></li>
                 </ol>
             </p>
         </div>
