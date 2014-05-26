@@ -63,5 +63,7 @@ CREATE TABLE Rent(
         year INT NOT NULL,
         FOREIGN KEY(title, year) REFERENCES CD(title, year),
         ssn INT NOT NULL,
-        FOREIGN KEY(ssn) REFERENCES Customer(ssn)
+        FOREIGN KEY(ssn) REFERENCES Customer(ssn),
+        rentDate DATE NOT NULL,
+        returnDate DATE NOT NULL
 );

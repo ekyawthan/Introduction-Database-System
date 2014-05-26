@@ -9,7 +9,22 @@
 
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
-    <link rel="stylesheet" href="css/layouts/side-menu.css">  
+    <link rel="stylesheet" href="css/layouts/side-menu.css"> 
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css"
+    href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
+    <script type="text/javascript">
+   
+
+ $(function() {
+$( "#datepicker" ).datepicker();
+$( "#datepicker1" ).datepicker();
+$( "#datepicker2" ).datepicker();
+$( "#datepicker3" ).datepicker();
+});
+</script>
 
 </head>
 <body>
@@ -64,7 +79,6 @@
 
                     <label for="year">Year</label>
                     <input id="year" name="year" type="number" placeholder="The Year">
-
                     <label for="type">Type</label>
                     <select id = "type" name="type" type="text">
                      <option  value="solo" selected="selected" >Solo</option>
@@ -104,17 +118,31 @@
    <form class="pure-form pure-form-stacked" action="" method="POST">
     <fieldset>
         <legend>Insert a regular-customer borrowing a particular CD</legend>
-
-        <label for="name">Customer Name</label>
-        <?php 
-            $sql = "SELECT name FROM Customer"
-         ?>
-        <input id="name" type="text" placeholder="Name">
-
-        <label for="date">Rent'Date:</label>
-        <input id="date" type="date" placeholder="Date">
-        <label for="date">Due Date:</label>
-        <input id="date" type="date" placeholder="Date">
+        <p>Not Register Yet! <a href="custom_insert.php" title="">register Here</a></p>
+        <label for="ssn">Customer ID</label>
+                 <select id="ssn" name="ssn">
+                    <?php 
+                    $sql = "SELECT ssn FROM Customer ";
+                    $result = mysql_query($sql);
+                    while($row = mysql_fetch_array($result)){
+                        echo "<option value='".$row['ssn']."'>".$row['ssn']."</option>";
+                   }
+                   ?>
+               </select>
+              <label for="title">CD Title:</label>
+         <select id="title" name="title">
+                    <?php 
+                    $sql = "SELECT title FROM CD";
+                    $result = mysql_query($sql);
+                    while($row = mysql_fetch_array($result)){
+                        echo "<option value='".$row['title']."'>".$row['title']."</option>";
+                   }
+                   ?>
+                   </select>
+        <label for="date">Rental Date </label>
+        <input id="datepicker" type="date" placeholder="Date">
+        <label for="date">Rent Date </label>
+        <input id="datepicker1" type="date" placeholder="Date">
 
         <button type="submit" class="pure-button pure-button-primary">Rent</button>
     </fieldset>
@@ -123,21 +151,39 @@
 <form class="pure-form pure-form-stacked">
     <fieldset>
         <legend>Insert a VIP-customer borrowing a particular CD</legend>
-
-        <label for="name">Customer Name</label>
-        <input id="name" type="text" placeholder="Name">
-
-        <label for="date">Rent'Date:</label>
-        <input id="date"  type="date" value="2010-12-16;" placeholder="Date">
-        <label for="date">Due Date:</label>
-        <input id="date" type="date" placeholder="Date">
+        <p>Not A VIP! <a href="addVip.php" title="">Add As VIP Here</a></p>
+        <label for="name">VIP ID</label>
+         <select id="name" name="name">
+                    <?php 
+                    $sql = "SELECT ssn FROM VIP";
+                    $result = mysql_query($sql);
+                    while($row = mysql_fetch_array($result)){
+                        echo "<option value='".$row['ssn']."'>".$row['ssn']."</option>";
+                   }
+                   ?>
+                   </select>
+                         <label for="title">CD Title:</label>
+         <select id="title" name="title">
+                    <?php 
+                    $sql = "SELECT title FROM CD";
+                    $result = mysql_query($sql);
+                    while($row = mysql_fetch_array($result)){
+                        echo "<option value='".$row['title']."'>".$row['title']."</option>";
+                   }
+                   ?>
+                   </select>
+        <label for="date">Rental Date:</label>
+        <input id="datepicker2"  type="date" placeholder="Date">
+        <label for="date">Rent Date:</label>
+        <input id="datepicker3" type="date" placeholder="Date">
 
         <button type="submit" class="pure-button pure-button-primary">Rent</button>
     </fieldset>
 </form> 
 <?php 
     mysql_close();
- ?>      
+ ?>  
+
 </div>
 
 </div>
@@ -145,7 +191,3 @@
 </html>
 
 
- 
-</head>
-<body>
-<p>Date: <input type="text" id="datepicker"></p>
